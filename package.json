@@ -1,13 +1,13 @@
 {
-  "name": "deploy-tools",
+  "name": "@abramstyle/deploy-tools",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "author": "Abramstyle <abram.style@gmail.com>",
   "license": "MIT",
   "scripts": {
     "tsc": "tsc",
     "ts-node": "ts-node",
-    "build": "rm -rf ./build && tsc"
+    "build": "rm -rf ./dist && tsc"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^1.4.2",
