@@ -24,3 +24,4 @@ public/build/*
 isomorphic/clientConfig.js
 .cache/*
 .test/*
+__tests__
