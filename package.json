@@ -2,7 +2,7 @@
   "name": "@abramstyle/deploy-tools",
   "version": "1.0.2",
   "description": "Deploy utils",
-  "main": "./dist/index.js",
+  "main": "dist/index.js",
   "author": "Abramstyle <abram.style@gmail.com>",
   "license": "MIT",
   "scripts": {
