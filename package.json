@@ -1,6 +1,6 @@
 {
   "name": "@abramstyle/deploy-tools",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Deploy utils",
   "main": "dist/index.js",
   "author": "Abramstyle <abram.style@gmail.com>",
