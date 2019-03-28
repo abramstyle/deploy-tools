@@ -4,6 +4,7 @@
   "description": "Deploy utils",
   "main": "dist/index.js",
   "author": "Abramstyle <abram.style@gmail.com>",
+  "repository": "https://github.com/abramstyle/deploy-tools",
   "license": "MIT",
   "scripts": {
     "tsc": "tsc",

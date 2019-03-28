@@ -1,9 +1,9 @@
 import * as EventEmitter from 'events';
 import { Uploader, UploaderConfig } from '../interface';
 import './config';
-import {readDir, readFile, generateKey} from './helpers';
+import { readDir, readFile, generateKey } from './helpers';
 import s3 from './s3';
-import {resolve, basename} from 'path';
+import { resolve, basename } from 'path';
 import * as mime from 'mime-types';
 
 class S3Uploader extends EventEmitter implements Uploader {
@@ -30,14 +30,14 @@ class S3Uploader extends EventEmitter implements Uploader {
   }
 
   private success(): void {
-    this.finishedCount ++;
+    this.finishedCount++;
   }
 
   public async uploadDir(distDir: string): Promise<void> {
     const files = await readDir(distDir);
     this.fileCount = files.length;
 
-    for(const filename of files) {
+    for (const filename of files) {
       const filepath = resolve(distDir, filename);
 
       this.uploadFile(filepath).then(() => {
@@ -62,7 +62,7 @@ class S3Uploader extends EventEmitter implements Uploader {
   public async uploadFile(filepath: string): Promise<any> {
     const file = await readFile(filepath);
     const filename = basename(filepath);
-    const {bucket: Bucket, keyPrefix: KeyPrefix} = this;
+    const { bucket: Bucket, keyPrefix: KeyPrefix } = this;
     const ACL = 'public-read';
     const ContentType = mime.lookup(filename) || undefined;
     const params = {
@@ -70,6 +70,7 @@ class S3Uploader extends EventEmitter implements Uploader {
       Body: file,
       ACL,
       ContentType,
+      CacheControl: 'max-age=31536000',
       Key: generateKey(KeyPrefix, filename)
     };
 
